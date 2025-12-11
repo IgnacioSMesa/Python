@@ -1,6 +1,8 @@
 import itertools
+import unicodedata
 
-ejercicio = 7
+
+ejercicio = 4
 
 match ejercicio:
     case 1:
@@ -53,24 +55,26 @@ match ejercicio:
 
         print(reempleazarMayuscula("Tres tristes tigres, tragaban trigo en un trigal, en tres tristes trastos, tragaban trigo tres tristes tigres"))
     case 4:
+
         def anagrama(palabra1, palabra2):
 
             palabra1 = palabra1.lower().replace(" ", "")
             palabra2 = palabra2.lower().replace(" ", "")
 
-            palabra1_arreglo = list(palabra1)
-            palabra2_arreglo = list(palabra2)
+            #tener en cuenta tildes
+            palabra1 = unicodedata.normalize("NFD", palabra1) #Quita tildes, dieresis, ñ etc
+            palabra1 = palabra1.encode("ascii", "ignore") #todo lo que se salga del ascii lo ignora
 
-            palabra1_arreglo.sort()
-            palabra2_arreglo.sort()
+            palabra2 = unicodedata.normalize("NFD", palabra2)
+            palabra2 = palabra2.encode("ascii", "ignore")
 
-            palabra1_ordenada = "".join(palabra1_arreglo)
-            palabra2_ordenada = "".join(palabra2_arreglo)
-
-            return palabra1_ordenada == palabra2_ordenada
+            return sorted(palabra1) == sorted(palabra2)
 
 
-        if anagrama("I am lord voldemort", "Tom marvolo riddle"):
+        frase = "I am lord voldemort"
+        frase2 = "Tom marvolo riddle"
+
+        if anagrama(frase, frase2):
             print("Es anagrama")
         else:
             print("No anagrama")
@@ -140,8 +144,6 @@ match ejercicio:
             return f"Hay {contador} {letra}, los 4 ultimos caracteres son: {cadenaLimpia[-4:]}"
 
         print(contarLetras("Tres tristes tigres, tragaban trigo en un trigal, en tres tristes trastos, tragaban trigo tres tristes tigres"))
-
-
     case 8:
         """
         Crear una función que cuente las vocales de una cadena
@@ -175,21 +177,22 @@ match ejercicio:
         Ejercicio(Oscar Pérez): Crea una función que al pasarle una frase cuente el numero de vocales que tiene en total
          y que pregunte por que otra vocal quiere cambiar todas las vocales de la frase, que retorne la frase cambiada 
          y el numero de vocales de la frase antes de cambiarlas.
-        
         """
 
         cadena = input("Escriba una cadena: ")
 
-
         def ejercicio(cadena):
             contador = 0
-            vocales = "aeiouAEIOU"
+            vocales = "aeiouAEIOUáéíóúÁÉÍÓÚ"
 
             for letra in cadena:
                 if letra in vocales:
                     contador += 1
 
             vocalSustituta = input("Escriba una vocal a sustituir: ")
+
+            while vocalSustituta not in vocales:
+                vocalSustituta = input("Opción inválida, escriba una vocal a sustituir: ")
 
             frase = cadena
             for vocal in vocales:
@@ -251,3 +254,24 @@ match ejercicio:
 
         print("Mejor ruta:", " → ".join(mejor_ruta))
         print("Distancia total:", mejor_distancia)
+
+    case 13:
+
+        """
+        Palindromos
+        """
+
+
+
+
+        def esPalindromo(frase):
+            fraseLimpia = frase.replace(" ", "").lower()
+            fraseLimpia = unicodedata.normalize("NFD", fraseLimpia)
+            fraseLimpia = fraseLimpia.encode("ascii", "ignore")
+
+            return fraseLimpia == fraseLimpia[::-1]
+
+        if esPalindromo("Dábale arroz a la zorra el abad"):
+            print("Palindromo")
+        else:
+            print("No palindromo")
