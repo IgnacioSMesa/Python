@@ -2,7 +2,7 @@ import itertools
 import unicodedata
 
 
-ejercicio = 4
+ejercicio = 2
 
 match ejercicio:
     case 1:
@@ -21,20 +21,26 @@ match ejercicio:
          correos = [ barack.obama@nagger.com", angela.merkel@pretzel.com", emmanuel.macron@gabacho.com", 
          justin.trudeau@pokemon.com", gorgefluidos@air.lkc" ]
         """
-        correos = ["barack.obama@nagger.com",
-                   "angela.merkel@pretzel.com",
-                   "emmanuel.macron@gabacho.com",
-                   "justin.trudeau@pokemon.com",
-                   "gorgefluidos@air.lkc"]
+        correos = [
+                    "barackobama@nagger.com",
+                   "angelamerkel@pretzel.com",
+                   "emmanuelmacron@gabacho.com",
+                   "justintrudeau@pokemon.com",
+                   "gorgefluidos@air.lkc"
+        ]
 
         def correos_nombres(correos):
             nombres = []
+            dominios = []
+
             for correo in correos:
                 nombres.append(correo.split("@")[0])
+                dominios.append(correo.split("@")[1])
 
-            return nombres
+            return f"{nombres} dominios son {dominios}"
 
         print(correos_nombres(correos))
+
     case 3:
         """
         # Haz un metodo que reemplace cada palabra con la primera letra en mayuscula y cuenta cuantas ‘e’ hay.
@@ -254,7 +260,6 @@ match ejercicio:
 
         print("Mejor ruta:", " → ".join(mejor_ruta))
         print("Distancia total:", mejor_distancia)
-
     case 13:
 
         """
