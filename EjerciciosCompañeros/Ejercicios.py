@@ -26,7 +26,7 @@ match ejercicio:
                    "angelamerkel@pretzel.com",
                    "emmanuelmacron@gabacho.com",
                    "justintrudeau@pokemon.com",
-                   "gorgefluidos@air.lkc"
+                   "gorgefluidos@air.lkcs"
         ]
 
         def correos_nombres(correos):
