@@ -59,4 +59,3 @@ print(productos_por_stock)
 
 productos_por_nombre = sorted(productos, key=itemgetter(0))
 print(productos_por_nombre)
-
