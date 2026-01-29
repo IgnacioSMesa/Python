@@ -1,0 +1,6 @@
+Python es un lenguaje de programación.
+Se utiliza para el desarrollo web, ciencia de datos, automatización y mucho más.
+El aprendizaje automático y la inteligencia artificial son áreas populares de Python.
+Los pandas son una biblioteca de Python para análisis de datos.
+Este archivo de texto es un ejemplo para practicar con ficheros en Python.
+Python es fácil de aprender y tiene una gran comunidad.
