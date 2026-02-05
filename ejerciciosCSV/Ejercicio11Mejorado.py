@@ -28,7 +28,7 @@ for jefe in coincidencias:
         f"\n{'-'*30}"
     )
 
-with open("hollow_knightPromedios.csv", "w", newline="", encoding="utf-8") as f:
+with open("hollow_knightPromedios.csv.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=encabezados)
     writer.writeheader()
     writer.writerows(promedios_mayor_5)

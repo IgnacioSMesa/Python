@@ -30,7 +30,7 @@ with open("jefes_hollow_knight.csv", encoding="utf-8") as f:
             f"\n{'-'*30}" # agrega lineas de separación
         )
 
-with open ("hollow_knightPromedios.csv", "w", newline='', encoding="utf-8") as f:
+with open ("hollow_knightPromedios.csv.csv", "w", newline='', encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames = encabezados)
     writer.writeheader()
     writer.writerows(promediosMayor5)
