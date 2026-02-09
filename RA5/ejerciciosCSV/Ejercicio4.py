@@ -1,7 +1,7 @@
 import csv
 
 promedio = []
-with open("hollow_knight.csv", encoding="utf-8") as archivo:
+with open("jefes_hollow_knight.csv", encoding="utf-8") as archivo:
     reader = csv.DictReader(archivo)
 
     for row in reader:
